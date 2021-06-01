@@ -4,19 +4,19 @@ import wordcloudJuan
 
 def genWordCloud(dates, vaccine):
     i=0
-    while(i<len(datesRusa)):
+    while(i<len(dates)):
         from_date = dates[i]
         i+=1
         to_date = dates[i]
         i+=1
         named_vaccine = vaccine
         textfileLocation = './Tweets/' + named_vaccine + '_' + from_date + '_' + to_date + '.txt'
-        wordcloudLocation = './Wordcloud/' + named_vaccine + '_' + from_date + '_' + to_date + '.png'
+        wordcloudLocation = './Wordcloud/covid/' + named_vaccine + '_' + from_date + '_' + to_date + '.png'
         f = open(textfileLocation, "r+", encoding='utf-8')
         all_tweets = f.read()
         f.close()
         wordcloudJuan.saveWordcloud(all_tweets,wordcloudLocation)
-        print('./Wordcloud/' + named_vaccine + '_' + from_date + '_' + to_date + '.png')
+        print('./Wordcloud/covid/' + named_vaccine + '_' + from_date + '_' + to_date + '.png')
 
 
 
