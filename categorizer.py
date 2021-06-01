@@ -7,5 +7,4 @@ def busquedaVacuna(tweet):
             vacunas = 'Ambas'
         else:
             vacunas='China'
-    print(vacunas)
     return vacunas
