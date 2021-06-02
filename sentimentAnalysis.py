@@ -8,11 +8,11 @@ def analize_sentiment_pypi(tweet):
         return "Error"
     sentimientoCualitativo = ""
     sentimiento = sentiment.sentiment(tweet)
-    if(sentimiento < 0.06):
+    if(sentimiento < 0.3):
         sentimientoCualitativo = "Negativo"
-    elif (sentimiento < 0.40):
+    elif (sentimiento < 0.6):
         sentimientoCualitativo = "Neutro"
     else:
         sentimientoCualitativo = "Positivo"
         
-    return sentimientoCualitativo
+    return sentimiento, sentimientoCualitativo
