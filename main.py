@@ -14,12 +14,13 @@ import sentimentAnalysis
 # for tweet in popularDf['tweet']:
 #     print(tweet)
 
-df = pd.read_csv('./Datos/vacunasXFraseLimpiasConStopwords.csv')
+# df = pd.read_csv('./Datos/vacunasXFraseLimpiasConStopwords.csv')
 
-df['sentiment_analysis'] = df['tweet'].map(lambda x: sentimentAnalysis.analize_sentiment_pypi((x.replace('[', '').replace(']', '').replace("'", '').replace(',', ''))))
-print('Ready')
+# df['sentiment_analysis'] = df['tweet'].map(lambda x: sentimentAnalysis.analize_sentiment_pypi((x.replace('[', '').replace(']', '').replace("'", '').replace(',', ''))))
+# print('Ready')
 
-df.to_csv('./Datos/vacunasXFraseSentimientosConStopwordsV2.csv')
+# df.to_csv('./Datos/vacunasXFraseSentimientosConStopwordsV2.csv')
+
 
 
 
