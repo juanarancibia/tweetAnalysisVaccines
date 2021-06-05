@@ -1,11 +1,16 @@
-import io
 import pandas as pd
-import sentimentAnalysis
+import trolls
 
-# df = pd.read_json('./Datos/vacunasXFrase.json')
-# df.drop_duplicates(subset='id', keep="last")
-# dfNoRTS = df[df['retweet'] == False]
-# tweetsDict = trolls.detectTrollTweets(dfNoRTS['tweet'])
+df = pd.read_json('./Datos/vacunasXFrase.json')
+df.drop_duplicates(subset='id', keep="last")
+dfNoRTS = df[df['retweet'] == False]
+tweetsDict = trolls.detectTrollTweets(dfNoRTS['tweet'])
+troll_tweet, amount = zip(*tweetsDict.items())
+new_df = pd.DataFrame()
+new_df['Tweet'] = troll_tweet
+new_df['Amount'] = amount
+
+new_df.to_csv('./Data/trollsTweets.csv')
 
 # df = pd.read_json('./Datos/vacunasXFrase.json')
 
@@ -16,10 +21,10 @@ import sentimentAnalysis
 
 # df = pd.read_csv('./Datos/vacunasXFraseLimpiasConStopwords.csv')
 
-# df['sentiment_analysis'] = df['tweet'].map(lambda x: sentimentAnalysis.analize_sentiment_pypi((x.replace('[', '').replace(']', '').replace("'", '').replace(',', ''))))
+# df['sentiment_analysis'] = df['tweet'].map(lambda x: sentimentAnalysis.analize_sentiment_discretized_3rd(str(x)))
 # print('Ready')
 
-# df.to_csv('./Datos/vacunasXFraseSentimientosConStopwordsV2.csv')
+# df.to_csv('./Datos/vacunasXFraseSentimientosConStopwordsV3.csv')
 
 
 
