@@ -16,8 +16,8 @@ def generateWordcloud(text):
     plt.show()
 
 def saveWordcloud(text, fileLocation):
-    mask = np.array(Image.open("./WordCloud/comment-mask.png"))
-    wordcloud = WordCloud(stopwords = stopwords_common, background_color="white",width=2040, height=1080, max_words=1000, mask=mask, contour_width=5, contour_color='black',relative_scaling=0).generate(text)
+    mask = np.array(Image.open("./WordCloud/twitter-mask.png"))
+    wordcloud = WordCloud(stopwords = stopwords_common, background_color="white",width=2040, height=1080, max_words=1000, mask=mask, contour_width=5, contour_color='lightblue',relative_scaling=0).generate(text)
     wordcloud.to_file(fileLocation)
 
 
