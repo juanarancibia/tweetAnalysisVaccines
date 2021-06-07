@@ -11,12 +11,12 @@ def genWordCloud(dates, vaccine):
         i+=1
         named_vaccine = vaccine
         textfileLocation = './Tweets/' + named_vaccine + '_' + from_date + '_' + to_date + '.txt'
-        wordcloudLocation = './Wordcloud/covid/' + named_vaccine + '_' + from_date + '_' + to_date + '.png'
+        wordcloudLocation = './Wordcloud/comment/' + named_vaccine + '_' + from_date + '_' + to_date + '.png'
         f = open(textfileLocation, "r+", encoding='utf-8')
         all_tweets = f.read()
         f.close()
         wordcloudJuan.saveWordcloud(all_tweets,wordcloudLocation)
-        print('./Wordcloud/covid/' + named_vaccine + '_' + from_date + '_' + to_date + '.png')
+        print('./Wordcloud/comment/' + named_vaccine + '_' + from_date + '_' + to_date + '.png')
 
 
 
@@ -33,4 +33,4 @@ datesChina = ['2020-07-19',
 '2021-03-01', '2021-03-14',
 '2021-04-08', '2021-04-17']
 
-genWordCloud(datesRusa, 'Rusa')
+genWordCloud(datesChina, 'China')
