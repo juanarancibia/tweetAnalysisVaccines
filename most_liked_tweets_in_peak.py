@@ -13,6 +13,7 @@ dates = ['2020-08-10', '2020-08-18',
 
 df = pd.read_json('./Datos/vacunasXFrase.json')
 df.drop(df.columns.difference(['username', 'tweet', 'date', 'likes_count', 'retweets_count', 'replies_count', 'link']),1,inplace=True)
+df['popularity'] = (df['likes_count'] + df['retweets_count'] + df['replies_count']) /3
 i=0
 while(i<len(dates)):
     from_date = dates[i]
@@ -21,6 +22,6 @@ while(i<len(dates)):
     i+=1
     
     df_dates = df[(df['date'] >= from_date) & (df['date'] <= to_date)]
-    popularDf = df_dates.sort_values(by=['likes_count'], ascending=False).head(1000)
+    popularDf = df_dates.sort_values(by=['popularity'], ascending=False).head(1000)
     
     popularDf.to_csv(f'./Data./peak_liked_tweets/liked_{from_date}_to_{to_date}.csv')
