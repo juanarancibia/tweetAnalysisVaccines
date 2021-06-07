@@ -14,17 +14,6 @@ import sentimentAnalysis
 
 # print(new_df['Amount'].sum())
 
-df = pd.read_csv('./Datos/vacunasXFraseSentimientosConStopwordsV4.csv')
-
-popularDf = df.sort_values(by=['likes_count'], ascending=False).head(1000)
-notLikedTweets = df.sort_values(by=['sentiment_value']).head(1000)
-
-popularDf.drop(popularDf.columns.difference(['username', 'tweet', 'likes_count', 'sentiment_analysis']),1,inplace=True)
-notLikedTweets.drop(notLikedTweets.columns.difference(['username', 'tweet', 'sentiment_value', 'sentiment_analysis', 'likes_count']),1,inplace=True)
-
-popularDf.to_csv('./Data/popularTweets.csv')
-notLikedTweets.to_csv('./Data/mostNegativeTweets.csv')
-
 # df = pd.read_csv('./Datos/vacunasXFraseLimpiasConStopwords.csv')
 
 # df['sentiment_analysis'] = df['tweet'].map(lambda x: sentimentAnalysis.analize_sentiment_discretized_3rd(str(x)))

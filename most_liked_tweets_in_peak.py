@@ -11,8 +11,8 @@ dates = ['2020-08-10', '2020-08-18',
 '2021-03-01', '2021-03-14',
 '2021-04-08', '2021-04-17']
 
-df = pd.read_csv('./Datos/vacunasXFraseSentimientosConStopwordsV4.csv')
-df.drop(df.columns.difference(['username', 'tweet', 'date', 'likes_count', 'sentiment_analysis']),1,inplace=True)
+df = pd.read_json('./Datos/vacunasXFrase.json')
+df.drop(df.columns.difference(['username', 'tweet', 'date', 'likes_count', 'retweets_count', 'replies_count', 'link']),1,inplace=True)
 i=0
 while(i<len(dates)):
     from_date = dates[i]
